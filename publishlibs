@@ -1,0 +1,20 @@
+#! /bin/bash
+
+cd $(dirname "$0")
+ROOT=$(pwd)
+
+echo "Publishing common_old"
+cd "$ROOT"/common_old
+sbt +publishLocal
+
+echo "Publishing common_new"
+cd "$ROOT"/common_new
+sbt +publishLocal
+
+echo "Publishing lib A (uses common old)"
+cd "$ROOT"/lib_a
+sbt +publishLocal
+
+echo "Publishing lib B (uses common new)"
+cd "$ROOT"/lib_b
+sbt +publishLocal
