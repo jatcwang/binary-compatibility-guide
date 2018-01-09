@@ -138,12 +138,12 @@ and an `AbstractMethodError` will be thrown when the default method is called.
 See [this StackOverflow question](https://stackoverflow.com/questions/18366817/is-adding-a-trait-method-with-implementation-breaking-backward-compatibility)
 for a more detailed explanation.
 
-## DONT: Inlining
+## DONT: Inlining from libraries
 
 From Scala [2.12 release notes](http://www.scala-lang.org/news/2.12.0/)
 
 > If you are building a library to publish on Maven Central, you should not inline code from dependencies. 
 Users of your library might have different versions of those dependencies on the classpath, which breaks binary compatibility.
 
-This means not using `-opt:l:inline` and friends when compiling libraries
+This means not using `-opt:l:inline-from` (or the deprecated option `-opt:l:classpath`) to inline from libraries.
 
