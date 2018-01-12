@@ -23,7 +23,7 @@ More obvious incompatible changes such as removing a class/method won't be docum
     - [AVOID: Using Case Classes](#avoid-using-case-classes)
     - [DO: Annotate method return types explicitly](#do-annotate-method-return-types-explicitly)
     - [DONT: Adding methods with default implementation to traits (2.11 or before)](#dont-adding-methods-with-default-implementation-to-traits-211-or-before)
-    - [DONT: Inlining](#dont-inlining)
+    - [DONT: Inlining from other libraries](#dont-inlining-from-other-libraries)
 
 <!-- /TOC -->
 
@@ -158,12 +158,17 @@ and an `AbstractMethodError` will be thrown when the default method is called.
 See [this StackOverflow question](https://stackoverflow.com/questions/18366817/is-adding-a-trait-method-with-implementation-breaking-backward-compatibility)
 for a more detailed explanation.
 
-## DONT: Inlining
+## DONT: Inlining from other libraries
 
 From Scala [2.12 release notes](http://www.scala-lang.org/news/2.12.0/)
 
 > If you are building a library to publish on Maven Central, you should not inline code from dependencies. 
 Users of your library might have different versions of those dependencies on the classpath, which breaks binary compatibility.
 
-This means not using `-opt:l:inline` and friends when compiling libraries
+This means that when using `-opt:l:inline`, care needs to be taken to not inline from dependencies
+on the classpath. For example, `-opt:l:inline -opt-inline-from:<sources>` is safe
+because it will only inline source files compiled in the current compilation unit, 
+while `-opt:l:inline -opt-inline-from:some.other.library.**` is not safe because it may 
+inline methods from a library you depend on.
 
+For more information, you can run `scalac -opt:help` and `scalac -opt-inline-from:help`
