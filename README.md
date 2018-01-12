@@ -108,8 +108,13 @@ We recommend **NOT** to use case classes unless you
 * are confident that the case class's fields will remain constant as libraries evolve
 * really need methods such as `unapply` being generated for you
 
-If you still want all the benefits of a [Contraband](https://github.com/sbt/contraband) is another alternative for generate your classes and is designed
-to better facilitate library evolution without binary breakages. (It is used by SBT)
+If you still miss case classes but want to ensure your classes evolve without breaking downstream,
+here are a few projects that will help:
+ 
+* [Contraband](https://github.com/sbt/contraband) generate your classes from a spec file and is designed
+to better facilitate library evolution without breaking binary compatibility. It is used by SBT.
+* [ScalaPB](https://github.com/scalapb/ScalaPB) is a [Protocol Buffers](https://developers.google.com/protocol-buffers/)
+compiler plugin for Scala. 
 
 ## DO: Annotate method return types explicitly
 
