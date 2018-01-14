@@ -1,6 +1,6 @@
 # Binary Compatibility Code Examples & Explanation
 
-Complementary material to docs.scala.org's [Binary Compatibility Guide](https://docs.scala-lang.org/tutorials/binary-compatibility-for-library-authors.html).
+Complementary material to docs.scala.org's [Binary Compatibility Guide](http://docs.scala-lang.org/overviews/core/binary-compatibility-for-library-authors.html).
 
 The goal of this repo is to help library authors reduce the amount of binary incompatible releases they have to make. Here you'll find:
 
@@ -9,9 +9,11 @@ The goal of this repo is to help library authors reduce the amount of binary inc
 
 More obvious incompatible changes such as removing a class/method won't be documented explicitly.
 
+## Table of Content
 <!-- TOC -->
 
 - [Binary Compatibility Code Examples & Explanation](#binary-compatibility-code-examples--explanation)
+    - [Table of Content](#table-of-content)
 - [Code Examples](#code-examples)
     - [Running the examples](#running-the-examples)
     - [How the examples are setup](#how-the-examples-are-setup)
