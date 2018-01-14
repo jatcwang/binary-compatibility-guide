@@ -9,7 +9,25 @@ The goal of this repo is to help library authors reduce the amount of binary inc
 
 More obvious incompatible changes such as removing a class/method won't be documented explicitly.
 
-# How to run the examples
+<!-- TOC -->
+
+- [Binary Compatibility Code Examples & Explanation](#binary-compatibility-code-examples--explanation)
+- [Code Examples](#code-examples)
+    - [Running the examples](#running-the-examples)
+    - [How the examples are setup](#how-the-examples-are-setup)
+- [Detailed Explanation of the DOs and DONTs](#detailed-explanation-of-the-dos-and-donts)
+    - [DO: Mark methods as package private when making breaking API changes](#do-mark-methods-as-package-private-when-making-breaking-api-changes)
+    - [DONT: Adding parameters with default values to methods](#dont-adding-parameters-with-default-values-to-methods)
+    - [AVOID: Using Case Classes](#avoid-using-case-classes)
+    - [DO: Annotate method return types explicitly](#do-annotate-method-return-types-explicitly)
+    - [DONT: Adding methods with default implementation to traits (2.11 or before)](#dont-adding-methods-with-default-implementation-to-traits-211-or-before)
+    - [DONT: Inlining](#dont-inlining)
+
+<!-- /TOC -->
+
+# Code Examples
+
+## Running the examples
 
 Ensure you have SBT installed and run the script
 
@@ -28,9 +46,9 @@ sbt +run
 
 to execute the application under both 2.11 and 2.12 (since certain examples only apply in older scala versions)
 
-## Understanding the examples
+## How the examples are setup
 
-This repository sets contains 4 scala codebases simulating a real world relationship between different libraries.
+This repository sets contains 4 scala codebases simulating real world relationship between different libraries.
 
 First we have `App`, our application which depends on library `A` and `B`.
 
@@ -41,7 +59,7 @@ Here's a visualization of the dependency graph:
 
 ![Dependency Graph](https://raw.githubusercontent.com/jatcwang/binary-compatibility-guide/master/dependency_graph.png)
 
-# Maintaing Compatibility - What to do and what not to do
+# Detailed Explanation of the DOs and DONTs
 
 ## DO: Mark methods as package private when making breaking API changes
 
