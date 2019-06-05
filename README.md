@@ -152,7 +152,7 @@ by explicit type annotation because it would break binary compatibility. The typ
 Before Java 8 (which 2.12 targets), interface methods cannot have default implementations.
 In order to support default methods for traits, Scala 2.11 and before
 automatically overrides the method for classes that extend the trait. However if no recompilation
-of the library is performed with the updated trait (with the new defult method), no override method is generated
+of the library is performed with the updated trait (with the new default method), no override method is generated
 and an `AbstractMethodError` will be thrown when the default method is called.
 
 See [this StackOverflow question](https://stackoverflow.com/questions/18366817/is-adding-a-trait-method-with-implementation-breaking-backward-compatibility)
