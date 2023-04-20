@@ -18,6 +18,12 @@ class IncompatibilityShowcases extends FreeSpec {
           LibA.use_InferReturnTypes
         }
       }
+
+      "Method made private breaks binary compatibility" in {
+        intercept[IllegalAccessError] {
+          LibA.use_MakeMethodPrivate
+        }
+      }
     }
 
     "Binary AND Source incompatible changes" - {

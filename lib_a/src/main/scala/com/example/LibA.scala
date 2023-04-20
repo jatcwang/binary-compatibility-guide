@@ -19,6 +19,10 @@ object LibA {
     returnTypeIsInferred
   }
 
+  def use_MakeMethodPrivate: Int = {
+    all_incompat.MakeMethodPrivate.willBePrivate()
+  }
+
   def use_PackagePrivate: String = {
     import scala212.src_incompat.PackagePrivate
 
